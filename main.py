@@ -34,9 +34,8 @@ class Character:
 
 
 if __name__ == '__main__':
-    f = open("attributes.json","r")
-    data = json.loads(f.read())
-    f.close()
+    with open("attributes.json","r",encoding="utf-8") as f:
+        data = json.loads(f.read())
 
     #listAttr(data)
     npc1 = Character(data)
