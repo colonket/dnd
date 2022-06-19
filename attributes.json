@@ -1,26 +1,26 @@
 {
     "race": [
-        {"name":"dwarf"},
-        {"name":"elf"},
-        {"name":"halfling"},
-        {"name":"human"},
-        {"name":"dragonborn"},
-        {"name":"gnome"},
-        {"name":"half-elf"},
-        {"name":"half-orc"},
-        {"name":"tiefling"}
+        {"name":"Dwarf"},
+        {"name":"Elf"},
+        {"name":"Halfling"},
+        {"name":"Human"},
+        {"name":"Dragonborn"},
+        {"name":"Gnome"},
+        {"name":"Half-Elf"},
+        {"name":"Half-Orc"},
+        {"name":"Tiefling"}
     ],
     "class": [
         {
-            "name":"barbarian",
+            "name":"Barbarian",
             "desc":"",
             "hitDie":"d12",
-            "primaryAbility":"str",
-            "profSavingThrow":["str","con"],
+            "primaryAbility":"STR",
+            "profSavingThrow":["STR","CON"],
             "profArmorWeapon":["armorLight","armorMedium","shields","weaponSimple","weaponMartial"]
         },
         {
-            "name":"bard",
+            "name":"Bard",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -28,7 +28,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"cleric",
+            "name":"Cleric",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -36,7 +36,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"druid",
+            "name":"Druid",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -44,7 +44,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"fighter",
+            "name":"Fighter",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -52,7 +52,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"monk",
+            "name":"Monk",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -60,7 +60,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"paladin",
+            "name":"Paladin",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -68,7 +68,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"ranger",
+            "name":"Ranger",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -76,7 +76,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"rogue",
+            "name":"Rogue",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -84,7 +84,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"sorcerer",
+            "name":"Sorcerer",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -92,7 +92,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"warlock",
+            "name":"Warlock",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -100,7 +100,7 @@
             "profArmorWeapon":[]
         },
         {
-            "name":"wizard",
+            "name":"Wizard",
             "desc":"",
             "hitDie":"",
             "primaryAbility":"",
@@ -109,11 +109,11 @@
         }
     ],
     "ability": [
-        {"short":"str","long":"strength"},
-        {"short":"dex", "long": "dexterity"},
-        {"short":"con", "long": "constitution"},
-        {"short":"int", "long": "intelligence"},
-        {"short":"wis", "long": "wisdom"},
-        {"short":"cha", "long": "charisma"}
+        {"short":"STR","long":"Strength"},
+        {"short":"DEX", "long": "Dexterity"},
+        {"short":"CON", "long": "Constitution"},
+        {"short":"INT", "long": "Intelligence"},
+        {"short":"WIS", "long": "Wisdom"},
+        {"short":"CHA", "long": "Charisma"}
     ]
 }

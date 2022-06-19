@@ -19,26 +19,19 @@ def listAttr():
         print(a['short'])
     
 
-class character:
-    def __init__(self):
-        self.race = ""
-        self.charClass = ""
-        self.name = ""
-        self.abilityScores = ""
-    
+class Character:
+    def __init__(self, data):
+        self.race = random.choice(data['race'])['name']
+        self.charClass = random.choice(data['class'])['name']
+        self.name = random.choice(data['ability'])['short']
+        self.pretty = " ".join([self.race,self.charClass])
+
     def __repr__(self):
-        attrs = [self.race,self.charClass,self.name,self.abilityScores]
-        return " ".join(attrs)
+        return self.pretty
 
     def __str__(self):
-        attrs = [self.race,self.charClass,self.name,self.abilityScores]
-        return " ".join(attrs)
+        return self.pretty
 
-
-def genCharRandom(data):
-    char = character
-    char.race = random.choice(data['race']) 
-    return char 
 
 if __name__ == '__main__':
     f = open("attributes.json","r")
@@ -46,5 +39,5 @@ if __name__ == '__main__':
     f.close()
 
     #listAttr(data)
-    npc1 = genCharRandom(data)
-    print(str(npc1))
+    npc1 = Character(data)
+    print(npc1)
