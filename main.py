@@ -21,16 +21,20 @@ def listAttr():
 
 class Character:
     def __init__(self, data):
+        self.level = 0
         self.race = random.choice(data['race'])['name']
         self.charClass = random.choice(data['class'])['name']
         self.name = random.choice(data['ability'])['short']
-        self.pretty = " ".join([self.race,self.charClass])
+        self.title = f"Level {self.level} {self.race} {self.charClass}"
+
+        self.equipment = []
+        self.attacks = []
 
     def __repr__(self):
-        return self.pretty
+        return self.title
 
     def __str__(self):
-        return self.pretty
+        return self.title
 
 
 if __name__ == '__main__':
