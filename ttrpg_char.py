@@ -3,26 +3,21 @@ import random
 import fantasynames as names
 import math
 
-    
 
 class Character:
     def __init__(
             self,
-            data_json=None,
+            ttrpg_json=None,
             level=None,
             race=None,
             char_class=None,
             name=None,
             abil_scores={},
-            hp=None,
-            speed=None,
-            init=None,
-            ac=None,
-            prof=None,
+            stats={},
             backpack=[],
             attacks=[]
         ):
-        self.data = data_json
+        self.data = ttrpg_json
         self.level = level
         self.race = race
         self.char_class = char_class
@@ -30,11 +25,7 @@ class Character:
 
         self.abil_scores = abil_scores
 
-        self.hp = hp
-        self.speed = speed
-        self.init = init
-        self.ac = ac
-        self.prof = prof
+        self.stats = stats
             
         self.backpack = backpack
         self.attacks = attacks
@@ -47,14 +38,12 @@ class Character:
 
         # Generate Ability Scores
         self.abil_scores = {}
-        for a in self.data['ability']:
-            self.abil_scores[ a["short"] ] = rollAbilScore()
+        for abil in self.data['ability']:
+            self.abil_scores[ abil['name'] ] = rollAbilScore()
 
-        self.hp = rollD(10)
-        self.speed = 30
-        self.init = 2
-        self.ac = 12
-        self.prof = 6
+        self.stats = {}
+        for stat in self.data['stats']:
+            self.stats[ stat['name'] ] = stat['default']
             
         self.backpack = []
         self.attacks = []

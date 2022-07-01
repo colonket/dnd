@@ -108,12 +108,19 @@
             "profArmorWeapon":[]
         }
     ],
+    "stats":[
+        {"name":"HP","desc":"Hit Points","default":"d10"},
+        {"name":"SPEED","desc":"Speed","default":"30"},
+        {"name":"INIT","desc":"Initiative","default":2},
+        {"name":"AC","desc":"Armor Class","default":12},
+        {"name":"PROF","desc":"Proficiency Bonus","default":6}
+    ],
     "ability": [
-        {"short":"STR","long":"Strength"},
-        {"short":"DEX", "long": "Dexterity"},
-        {"short":"CON", "long": "Constitution"},
-        {"short":"INT", "long": "Intelligence"},
-        {"short":"WIS", "long": "Wisdom"},
-        {"short":"CHA", "long": "Charisma"}
+        {"name":"STR","desc":"Strength"},
+        {"name":"DEX", "desc": "Dexterity"},
+        {"name":"CON", "desc": "Constitution"},
+        {"name":"INT", "desc": "Intelligence"},
+        {"name":"WIS", "desc": "Wisdom"},
+        {"name":"CHA", "desc": "Charisma"}
     ]
 }
