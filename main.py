@@ -1,6 +1,7 @@
 import json
 import random
 import fantasynames as names
+import math
 
 def listAttr():
     f = open("attributes.json","r")
@@ -30,7 +31,7 @@ class Character:
         # Generate Ability Scores
         self.AS = {}
         for a in data['ability']:
-            self.AS[ a["short"] ] = rollAS()
+            self.AS[ a["short"] ] = rollAbilScore()
 
         self.hp = rollD(10)
         self.speed = 30
@@ -43,7 +44,7 @@ class Character:
 
         self.title = f"{self.name}, Lvl. {self.level} {self.race} {self.charClass}"
         for key in self.AS.items():
-            self.title += f"\n{key[0]} -> {str(key[1]).rjust(2)}"
+            self.title += f"\n{key[0]} -> {str(key[1]).rjust(2)} ({abilScoreMod(key[1])})"
         self.title += f"\nBackpack: {self.backpack}"
         self.title += f"\nAttacks:  {self.attacks}"
 
@@ -57,16 +58,24 @@ class Character:
 def rollD(value):
     return random.randint(1,value) 
 
-def rollAS(r=4,k=3):
+def rollAbilScore(r=4,k=3):
     # Roll 'r' d6's, and keep the 'k' highest dice
     rolls = [rollD(6) for i in range(r)]
-    return sum(sorted(rolls,reverse=True)[:3])
+    return sum(sorted(rolls,reverse=True)[:k])
+
+def abilScoreMod(abilityScore):
+    sign = ""
+    mod = math.floor( (abilityScore - 10) / 2)
+    if mod >= 0:
+        sign += "+"
+    else:
+        sign += ""
+    return sign+str(mod)
         
 
 if __name__ == '__main__':
     with open("attributes.json","r",encoding="utf-8") as f:
         data = json.loads(f.read())
 
-    #listAttr(data)
     npc1 = Character(data)
     print(npc1)
