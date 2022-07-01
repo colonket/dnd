@@ -40,13 +40,16 @@ def test_chars(ttrpg_json):
 if __name__ == '__main__':
     with open("dnd.json","r",encoding="utf-8") as f:
         dnd = json.loads(f.read())
-    #test_chars(dnd)
+    test_chars(dnd)
 
     sard_roh = ttrpg_char.Character(
         ttrpg_json=dnd,
         level=2,
         race="Tiefling",
-        char_class="Cleric 1 / Rogue 1",
+        char_classes={
+            "Cleric":1,
+            "Rogue":1
+        },
         name="Sard Roh",
         abil_scores={
             "STR":13,

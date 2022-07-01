@@ -5,12 +5,15 @@ import math
 
 
 class Character:
+    """A TTRPG Character Instance, used to keep track of and modify
+    the various stats, items, and variables related to a character
+    """
     def __init__(
             self,
             ttrpg_json=None,
             level=None,
             race=None,
-            char_class=None,
+            char_classes=None,
             name=None,
             abil_scores=None,
             stats=None,
@@ -20,13 +23,10 @@ class Character:
         self.data = ttrpg_json
         self.level = level
         self.race = race
-        self.char_class = char_class
+        self.char_classes = char_classes
         self.name = name
-
         self.abil_scores = abil_scores
-
         self.stats = stats
-            
         self.inventory = inventory
         self.actions = actions
 
@@ -35,10 +35,9 @@ class Character:
         """
         self.level = 1
         self.race = random.choice(self.data['race'])['name']
-        self.char_class = random.choice(self.data['class'])['name']
+        self.char_classes = {random.choice(self.data['class'])['name'] : 1}
         self.name = names.human('any')
 
-        # Generate Ability Scores
         self.abil_scores = {}
         for abil in self.data['ability']:
             self.abil_scores[ abil['name'] ] = sum_of_dice()
@@ -46,20 +45,29 @@ class Character:
         self.stats = {}
         for stat in self.data['stats']:
             self.stats[ stat['name'] ] = stat['default']
-            
+        self.stats['HP'] = roll_d(10)
+
         self.inventory = []
         self.actions = []
 
     def __repr__(self):
-        return f"Character(data,{self.level},{self.race},{self.char_class},{self.name},{self.abil_scores},{self.hp},{self.speed},{self.init},{self.ac},{self.prof},{self.inventory},{self.actions})"
+        return f"Character(data,{self.level},{self.race},{self.char_classes},{self.name},{self.abil_scores},{self.hp},{self.speed},{self.init},{self.ac},{self.prof},{self.inventory},{self.actions})"
 
     def __str__(self):
-        title = f"{self.name}, Lvl. {self.level} {self.race} {self.char_class}"
-        for key in self.abil_scores.items():
-            title += f"\n{key[0]} -> {str(key[1]).rjust(2)} ({calc_abil_score_mod(key[1])})"
-        title += f"\nInventory: {self.inventory}"
-        title += f"\nActions:  {self.actions}"
-        return title
+        if None not in [self.name,self.level,self.race,self.char_classes]:
+            title = f"{self.name}, Lvl. {self.level} {self.race}, "
+            for c in self.char_classes.items():
+                title += f"{c[0]} {c[1]} "
+            if self.stats:
+                for stat in self.stats.items():
+                    title += f"\n\t{stat[0]}\t-> {stat[1]}"
+            if self.abil_scores:
+                for key in self.abil_scores.items():
+                    title += f"\n\t{key[0]} -> {str(key[1]).rjust(2)} ({calc_abil_score_mod(key[1])})"
+            title += f"\n\tInventory:\t{self.inventory}"
+            title += f"\n\tActions:\t{self.actions}"
+            return title
+        return f"Character '{self.name}' is missing critical attributes"
     
 
 def roll_d(value):
