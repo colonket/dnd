@@ -42,7 +42,8 @@ class Character:
         self.attacks = []
 
         self.title = f"{self.name}, Lvl. {self.level} {self.race} {self.charClass}"
-        self.title += f"\n{self.AS}"
+        for key in self.AS.items():
+            self.title += f"\n{key[0]} -> {str(key[1]).rjust(2)}"
         self.title += f"\nBackpack: {self.backpack}"
         self.title += f"\nAttacks:  {self.attacks}"
 
