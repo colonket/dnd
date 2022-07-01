@@ -122,5 +122,12 @@
         {"name":"INT", "desc": "Intelligence"},
         {"name":"WIS", "desc": "Wisdom"},
         {"name":"CHA", "desc": "Charisma"}
+    ],
+    "weapons": [
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
     ]
 }
