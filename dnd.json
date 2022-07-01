@@ -123,11 +123,31 @@
         {"name":"WIS", "desc": "Wisdom"},
         {"name":"CHA", "desc": "Charisma"}
     ],
-    "weapons": [
-        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
-        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
-        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
-        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
-        {"id":"","name":"","desc":"","range":"","dc":"","dmg":""},
+    "skills": [
+        {"name":"Acrobatics","desc":"","prof":false,"mod":"DEX","bonus":""},
+        {"name":"Animal Handling","desc":"","prof":false,"mod":"WIS","bonus":""},
+        {"name":"Arcana","desc":"","prof":false,"mod":"INT","bonus":""},
+        {"name":"Athletics","desc":"","prof":false,"mod":"STR","bonus":""},
+        {"name":"Deception","desc":"","prof":false,"mod":"CHA","bonus":""},
+        {"name":"History","desc":"","prof":false,"mod":"INT","bonus":""},
+        {"name":"Insight","desc":"","prof":false,"mod":"WIS","bonus":""},
+        {"name":"Intimidation","desc":"","prof":false,"mod":"CHA","bonus":""},
+        {"name":"Investigation","desc":"","prof":false,"mod":"INT","bonus":""},
+        {"name":"Medicine","desc":"","prof":false,"mod":"WIS","bonus":""},
+        {"name":"Nature","desc":"","prof":false,"mod":"INT","bonus":""},
+        {"name":"Perception","desc":"","prof":false,"mod":"WIS","bonus":""},
+        {"name":"Performance","desc":"","prof":false,"mod":"CHA","bonus":""},
+        {"name":"Persuasion","desc":"","prof":false,"mod":"CHA","bonus":""},
+        {"name":"Religion","desc":"","prof":false,"mod":"INT","bonus":""},
+        {"name":"Sleight of Hand","desc":"","prof":false,"mod":"DEX","bonus":""},
+        {"name":"Stealth","desc":"","prof":false,"mod":"DEX","bonus":""},
+        {"name":"Survival","desc":"","prof":false,"mod":"WIS","bonus":""}
+    ],
+    "actions": [
+        {"id":"melee_quarterstaff","name":"Quarterstaff","desc":"","range":"5","dc":"5","dmg":"1d6-1","dmgType":""},
+        {"id":"spell_ray_of_frost","name":"Ray of Frost","desc":"","range":"60","dc":"11","dmg":"4d8","dmgType":"frost"},
+        {"id":"melee_fist","name":"Fist","desc":"","range":"5","dc":"5","dmg":"1+STR","dmgType":""},
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":"","dmgType":""},
+        {"id":"","name":"","desc":"","range":"","dc":"","dmg":"","dmgType":""}
     ]
 }
