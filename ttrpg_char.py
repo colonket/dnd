@@ -1,4 +1,6 @@
-import json
+"""TTTPG Character Library
+"""
+
 import random
 import fantasynames as names
 import math

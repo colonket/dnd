@@ -1,9 +1,6 @@
-import ttrpg_char
-
 import json
-import random
-import fantasynames as names
-import math
+
+import ttrpg_char
 
 def list_attr(ttrpg_json):
     """List contents of dnd.json
