@@ -1,6 +1,6 @@
 import json
 
-import ttrpg_char
+import dnd_char
 
 def list_attr(ttrpg_json):
     """List contents of dnd.json
@@ -22,7 +22,7 @@ def test_chars(ttrpg_json):
     """Test method for creating character objects
     """
     print("Creating empty character...")
-    npc1 = ttrpg_char.Character(ttrpg_json)
+    npc1 = dnd_char.Character(ttrpg_json)
     print(npc1)
 
     print()
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         dnd = json.loads(f.read())
     test_chars(dnd)
 
-    sard_roh = ttrpg_char.Character(
+    sard_roh = dnd_char.Character(
         ttrpg_json=dnd,
         level=2,
         race="Tiefling",
