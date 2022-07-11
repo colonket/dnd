@@ -1,7 +1,7 @@
-# Untitled TTRPG Python Library
+# Untitled DND Python Library
 
-Python library that allows you to create and interact with TTRPG characters
-based on the specifications of a TTRPG through a JSON file.
+Python library that allows you to create and interact with DND characters
+based on the specifications of a JSON file.
 
 Created as a way to model Dungeons and Dragons characters in Python.
 
@@ -20,12 +20,12 @@ Run `test.py` to see examples of the library in action
 ### Creating a Random Character
 
 ```python3
-import ttrpg_char
+import dnd_char
 
 with open("dnd.json","r",encoding="utf-8") as f:
     dnd = json.loads(f.read())
 
-randChar = ttrpg_char.Character()
+randChar = dnd_char.Character()
 randChar.gen_random_char()
 print(randChar)
 ```
@@ -33,12 +33,12 @@ print(randChar)
 ### Creating a Character Manually 
 
 ```python3
-import ttrpg_char
+import dnd_char
 
 with open("dnd.json","r",encoding="utf-8") as f:
     dnd = json.loads(f.read())
 
-someChar = ttrpg_char.Character(
+someChar = dnd_char.Character(
         ttrpg_json=dnd,
         level=2,
         race="Tiefling",
