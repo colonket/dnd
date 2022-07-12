@@ -49,6 +49,21 @@ def calc_abil_score_mod(abil_score):
         sign += ""
     return sign+str(mod)
         
+def parse_dice_rolls(str_input):
+    """Parses dice rolls given by user and returns sum of dice rolls and values
+
+    Args:
+        str_input (String): i.e. "2d6 + 4"
+
+    Returns:
+        int: The sum of all dice rolls and values given
+    """
+    sum = 0
+    args = str_input.split("+") # Split string into list of arguments
+    for a in args:
+        a = "".join(a.split())  # Strip whitespace from each argument
+    return sum
+
 class Action:
     """An action to be used in Dungeons and Dragons
     """
@@ -110,7 +125,9 @@ class Character:
         self.actions = []
 
     def __repr__(self):
-        return f"Character(data,{self.level},{self.race},{self.char_classes},{self.name},{self.abil_scores},{self.hp},{self.speed},{self.init},{self.ac},{self.prof},{self.inventory},{self.actions})"
+        output = f"Character(data,{self.level},{self.race},{self.char_classes},{self.name},"
+        output += f"{self.abil_scores},{self.stats},{self.inventory},{self.actions})"
+        return output
 
     def __str__(self):
         if None not in [self.name,self.level,self.race,self.char_classes]:

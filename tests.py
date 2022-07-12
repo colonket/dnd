@@ -69,3 +69,4 @@ if __name__ == '__main__':
         actions=["Unarmed Strike"]
     )
     print(sard_roh)
+    print(repr(sard_roh))
