@@ -1,9 +1,66 @@
-"""TTTPG Character Library
+"""DND Utilities Library
 """
-
 import random
-import fantasynames as names
 import math
+import fantasynames as names
+
+def roll_d(value):
+    """Roll a dice of any value
+
+    Args:
+        value (int): The highest value of the die to be rolled. (i.e. 20 for d20)
+
+    Returns:
+        _int_: Random number from 1 to chosen value
+    """
+    return random.randint(1,value)
+
+def sum_of_dice(d=6,r=4,k=3,high=True):
+    """Roll 'r' dice of value 'd', and keep the 'k' highest or lowest dice depending on 'high'.
+    By default, rolls 4 d6's and finds the sum of the 3 highest dice values.
+
+    Args:
+        d (int, optional): Die value. Defaults to 6
+        r (int, optional): How many dice to roll. Defaults to 4.
+        k (int, optional): How many dice to keep. Defaults to 3.
+        high (bool, optional): If high, keep the highest dice. Defaults to True.
+
+    Returns:
+        int: Sum of the dice
+    """
+    # Roll 'r' d6's, and keep the 'k' highest dice
+    rolls = [roll_d(d) for i in range(r)]
+    return sum(sorted(rolls,reverse=high)[:k])
+
+def calc_abil_score_mod(abil_score):
+    """Calculates the ability score modifier for a given ability score
+
+    Args:
+        abil_score (int): The value of an ability score
+
+    Returns:
+        int: The ability score modifier based on the ability score
+    """
+    sign = ""
+    mod = math.floor( (abil_score - 10) / 2)
+    if mod >= 0:
+        sign += "+"
+    else:
+        sign += ""
+    return sign+str(mod)
+        
+class Action:
+    """An action to be used in Dungeons and Dragons
+    """
+
+    def __init__(self, name):
+        self.name = name
+        
+    def __repr__(self):
+        return f"Action({self.name})"
+        
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Character:
@@ -71,49 +128,3 @@ class Character:
             return title
         return f"Character '{self.name}' is missing critical attributes"
     
-
-def roll_d(value):
-    """Roll a dice of any value
-
-    Args:
-        value (int): The highest value of the die to be rolled. (i.e. 20 for d20)
-
-    Returns:
-        _int_: Random number from 1 to chosen value
-    """
-    return random.randint(1,value)
-
-def sum_of_dice(d=6,r=4,k=3,high=True):
-    """Roll 'r' dice of value 'd', and keep the 'k' highest or lowest dice depending on 'high'.
-    By default, rolls 4 d6's and finds the sum of the 3 highest dice values.
-
-    Args:
-        d (int, optional): Die value. Defaults to 6
-        r (int, optional): How many dice to roll. Defaults to 4.
-        k (int, optional): How many dice to keep. Defaults to 3.
-        high (bool, optional): If high, keep the highest dice. Defaults to True.
-
-    Returns:
-        int: Sum of the dice
-    """
-    # Roll 'r' d6's, and keep the 'k' highest dice
-    rolls = [roll_d(d) for i in range(r)]
-    return sum(sorted(rolls,reverse=high)[:k])
-
-def calc_abil_score_mod(abil_score):
-    """Calculates the ability score modifier for a given ability score
-
-    Args:
-        abil_score (int): The value of an ability score
-
-    Returns:
-        int: The ability score modifier based on the ability score
-    """
-    sign = ""
-    mod = math.floor( (abil_score - 10) / 2)
-    if mod >= 0:
-        sign += "+"
-    else:
-        sign += ""
-    return sign+str(mod)
-        

@@ -20,12 +20,12 @@ Run `test.py` to see examples of the library in action
 ### Creating a Random Character
 
 ```python3
-import dnd_char
+import dnd_utils
 
 with open("dnd.json","r",encoding="utf-8") as f:
     dnd = json.loads(f.read())
 
-randChar = dnd_char.Character()
+randChar = dnd_utils.Character()
 randChar.gen_random_char()
 print(randChar)
 ```
@@ -33,12 +33,12 @@ print(randChar)
 ### Creating a Character Manually 
 
 ```python3
-import dnd_char
+import dnd_utils
 
 with open("dnd.json","r",encoding="utf-8") as f:
     dnd = json.loads(f.read())
 
-someChar = dnd_char.Character(
+someChar = dnd_utils.Character(
         ttrpg_json=dnd,
         level=2,
         race="Tiefling",

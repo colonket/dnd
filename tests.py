@@ -1,6 +1,8 @@
-import json
+"""Tests script to test dnd_utils
+"""
 
-import dnd_char
+import json
+import dnd_utils as dnd
 
 def list_attr(ttrpg_json):
     """List contents of dnd.json
@@ -22,7 +24,7 @@ def test_chars(ttrpg_json):
     """Test method for creating character objects
     """
     print("Creating empty character...")
-    npc1 = dnd_char.Character(ttrpg_json)
+    npc1 = dnd.Character(ttrpg_json)
     print(npc1)
 
     print()
@@ -36,11 +38,11 @@ def test_chars(ttrpg_json):
 
 if __name__ == '__main__':
     with open("dnd.json","r",encoding="utf-8") as f:
-        dnd = json.loads(f.read())
-    test_chars(dnd)
+        rules = json.loads(f.read())
+    test_chars(rules)
 
-    sard_roh = dnd_char.Character(
-        ttrpg_json=dnd,
+    sard_roh = dnd.Character(
+        ttrpg_json=rules,
         level=2,
         race="Tiefling",
         char_classes={
